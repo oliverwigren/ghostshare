@@ -8,9 +8,15 @@
     border-radius: 15px;
     background-color: white;
     font-weight: 700;
+    text-decoration: none;
+    color: black;
 }
 .button:hover {
     background-color: blue;
     border-color: white;
+    color: white;
+}
+.active {
+    background-color: red;
     color: white;
 }
