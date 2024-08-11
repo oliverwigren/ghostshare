@@ -1,6 +1,5 @@
 import React from "react";
 import Post from "./Post";
-//import styles from '../style/FeedArea.module.css'
 
 function FeedArea({ posts }) {
   return (

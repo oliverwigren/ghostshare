@@ -16,13 +16,13 @@ function CreatePost({ setPosts }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="input">Message:</label>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <label className={styles.label} htmlFor="input">Message:</label>
         <br />
         <input id="input" type="text" required autoComplete="off"></input>
         <button type="submit" className={styles.submit}>Post</button>
         <br />
-        <button onClick={() => navigate(-1)}>Go back</button>
+        <button className={styles.goBack} onClick={() => navigate(-1)}>Go back</button>
       </form>
     </>
   );

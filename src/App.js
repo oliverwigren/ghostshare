@@ -8,7 +8,6 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 
 function App() {
   const [posts, setPosts] = useState([{text: 'Jag älskar matte.'}, {text: 'Och jag älskar programmering!'}])
-  //const [showCrP, setShowCrP] = useState(false)
 
   const appRouter = createBrowserRouter(createRoutesFromElements(<Route path='/' element={<Root />} >
     <Route path='post' element={<CreatePost setPosts={setPosts} />} />
@@ -16,13 +15,6 @@ function App() {
   </Route>))
 
   return (
-    // <div className="App">
-    //   <HeaderArea setShowCrP={setShowCrP} />
-
-    //   {showCrP ? <CreatePost setPosts={setPosts} setShow={setShowCrP} /> : <></> }
-
-    //   <FeedArea posts={posts}/>
-    // </div>
     <RouterProvider router={appRouter} />
   );
 }
