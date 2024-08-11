@@ -22,7 +22,7 @@ function CreatePost({ setPosts }) {
         <input id="input" type="text" required autoComplete="off"></input>
         <button type="submit" className={styles.submit}>Post</button>
         <br />
-        <button className={styles.goBack} onClick={() => navigate(-1)}>Go back</button>
+        <button type="button" className={styles.goBack} onClick={() => navigate(-1)}>Go back</button>
       </form>
     </>
   );
