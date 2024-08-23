@@ -71,7 +71,7 @@ export const addNewPost = async (text, userID) => {
 
 }
 
-export let unsubscribePosts;
+//export let unsubscribePosts;
 
 export const postsQuery = query(
     collection(db, 'posts'),
@@ -79,22 +79,34 @@ export const postsQuery = query(
     limit(10),
 )
 
-export const queryForPosts = () => {
-    const postsQuery = query(
-        collection(db, 'posts'),
-        //orderBy(date),
-        limit(10),
-    )
-    let array = []
+// export const queryForPosts = () => {
+//     const postsQuery = query(
+//         collection(db, 'posts'),
+//         //orderBy(date),
+//         limit(10),
+//     )
+//     let array = []
 
-    unsubscribePosts = onSnapshot(postsQuery, (querySnapshot) => {
-         return (querySnapshot.docs.map((e => array.push((e.data()))))) 
-    })
+//     unsubscribePosts = onSnapshot(postsQuery, (querySnapshot) => {
+//          return (querySnapshot.docs.map((e => array.push((e.data()))))) 
+//     })
 
-    // const querySnapshot = await getDocs(postsQuery)
-    // const alldocs = querySnapshot.docs()
+//     // const querySnapshot = await getDocs(postsQuery)
+//     // const alldocs = querySnapshot.docs()
 
-    //console.log(alldocs)
-    //return alldocs
+//     //console.log(alldocs)
+//     //return alldocs
+// }
+
+
+export const createPost = async (text, userID) => {
+    try {
+        const docRef = await addDoc(collection(db, "posts"), {
+          text: text,
+          userID: userID
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
 }
-

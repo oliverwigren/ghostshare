@@ -1,23 +1,23 @@
 import React from "react";
 import Post from "./Post";
-import { queryForPosts } from "./Firebase";
+//import { queryForPosts } from "./Firebase";
 import { useEffect, useState } from "react";
 import { onSnapshot } from "firebase/firestore";
 import { postsQuery } from "./Firebase";
-function FeedArea({ posts }) {
-  const [p, sp] = useState([]);
+function FeedArea() {
+  const [posts, setPosts] = useState([]);
 
-  let unsubscribePosts
+  let unsubscribePosts;
 
   useEffect(() => {
     unsubscribePosts = onSnapshot(postsQuery, (querySnapshot) => {
-      sp(querySnapshot.docs.map((e) => e.data()));
+      setPosts(querySnapshot.docs.map((e) => e.data()));
     });
   }, []);
 
   return (
     <>
-      {p.map((post, i) => (
+      {posts.map((post, i) => (
         <Post postContent={post.text} key={"Post_" + i} />
       ))}
     </>
