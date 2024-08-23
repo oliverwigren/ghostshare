@@ -26,7 +26,7 @@ export default db;*/
 //import firebase from "firebase";
 //import "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc, addDoc, collection, orderBy, query, limit, getDocs, onSnapshot, QuerySnapshot } from "firebase/firestore";
+import { getFirestore, doc, setDoc, addDoc, collection, orderBy, query, limit, getDocs, onSnapshot, QuerySnapshot, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCFKQqsvFcQ20np8g1yXp6ewnQkoKe3kn4",
@@ -73,15 +73,28 @@ export const addNewPost = async (text, userID) => {
 
 export let unsubscribePosts;
 
-export const queryForPosts = async () => {
+export const postsQuery = query(
+    collection(db, 'posts'),
+    //orderBy(date),
+    limit(10),
+)
+
+export const queryForPosts = () => {
     const postsQuery = query(
         collection(db, 'posts'),
         //orderBy(date),
         limit(10),
     )
+    let array = []
 
     unsubscribePosts = onSnapshot(postsQuery, (querySnapshot) => {
-        return JSON.stringify(querySnapshot.docs.map((e => e.data())))
+         return (querySnapshot.docs.map((e => array.push((e.data()))))) 
     })
+
+    // const querySnapshot = await getDocs(postsQuery)
+    // const alldocs = querySnapshot.docs()
+
+    //console.log(alldocs)
+    //return alldocs
 }
 

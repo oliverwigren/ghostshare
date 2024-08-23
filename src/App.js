@@ -10,9 +10,13 @@ import { collection, addDoc } from 'firebase/firestore'
 import {queryForPosts, unsubscribePosts} from './components/Firebase'
 
 function App() {
-  const [posts, setPosts] = useState([{text: 'Jag älskar matte.'}, {text: 'Och jag älskar programmering!'}])
+  const [posts, setPosts] = useState([{text: 'Jag älskar matte.', userID: 1}, {text: 'Och jag älskar programmering!', userID: 2}])
 
-  queryForPosts().then(setPosts)
+  // useEffect(() => {
+  //   setPosts(queryForPosts())
+
+  // },[])
+
 
   const appRouter = createBrowserRouter(createRoutesFromElements(<Route path='/' element={<Root />} >
     <Route path='post' element={<CreatePost setPosts={setPosts} />} />
