@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "./firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-export function CreateAccount() {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+function CreateAccount({ isAuth, setAuth }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate()
 
   const auth = getAuth();
 
@@ -16,6 +19,9 @@ export function CreateAccount() {
         const user = userCredential.user;
         // ...
         console.log(user + ' signed up!')
+
+        setAuth(true)
+        navigate('/')
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -52,6 +58,10 @@ export function CreateAccount() {
         />
         <button type="submit">Sign up </button>
       </form>
+
+      <button type="button" onClick={() => navigate('/login')}>Login</button>
     </section>
   );
 }
+
+export default CreateAccount;
