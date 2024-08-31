@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import styles from '../style/Login.module.css'
 
 function CreateAccount({ isAuth, setAuth }) {
   const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ function CreateAccount({ isAuth, setAuth }) {
   };
 
   return (
-    <section>
+    <section className={styles.section}>
       <h1></h1>
       <p></p>
 
@@ -45,7 +46,8 @@ function CreateAccount({ isAuth, setAuth }) {
           placeholder="Email"
           id="email"
           autoComplete="off"
-        /><br/>
+          className={styles.input}
+        /><br/><br/>
         <label htmlFor="password">Password</label><br/>
         <input
           name="password"
@@ -55,11 +57,12 @@ function CreateAccount({ isAuth, setAuth }) {
           placeholder="Password"
           id="password"
           autoComplete="off"
-        />
-        <button type="submit">Sign up </button>
+          className={styles.input}
+        /><br />
+        <button className={styles.button} type="submit">Sign up </button>
       </form>
 
-      <button type="button" onClick={() => navigate('/login')}>Login Instead</button>
+      <button className={styles.navBtn} type="button" onClick={() => navigate('/login')}>Login Instead</button>
     </section>
   );
 }

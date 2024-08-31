@@ -1,3 +1,33 @@
 .section {
     margin: auto;
+    width: 30%;
+    text-align: center;
+}
+.input {
+    border: 0;
+    border-bottom: black solid 1px;
+    padding: 1px 5px;
+}
+.button {
+    background-color: blue;
+    width: 200px;
+    padding: 15px 0;
+    margin: 15px;
+    border-radius: 15px;
+    border: 0;
+    color: white;
+}
+.button:hover {
+    background-color: white;
+    color: blue;
+    border: blue 1px solid;
+}
+.navBtn {
+    background-color: transparent;
+    text-decoration: underline;
+    border: 0;
+}
+.navBtn:hover {
+    color: blue;
+    text-decoration: none;
 }
