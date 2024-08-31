@@ -36,7 +36,7 @@ function CreateAccount({ isAuth, setAuth }) {
       <p></p>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email</label><br/>
         <input
           name="email"
           value={email}
@@ -45,8 +45,8 @@ function CreateAccount({ isAuth, setAuth }) {
           placeholder="Email"
           id="email"
           autoComplete="off"
-        />
-        <label htmlFor="password">Password</label>
+        /><br/>
+        <label htmlFor="password">Password</label><br/>
         <input
           name="password"
           value={password}
@@ -59,7 +59,7 @@ function CreateAccount({ isAuth, setAuth }) {
         <button type="submit">Sign up </button>
       </form>
 
-      <button type="button" onClick={() => navigate('/login')}>Login</button>
+      <button type="button" onClick={() => navigate('/login')}>Login Instead</button>
     </section>
   );
 }
