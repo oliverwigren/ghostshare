@@ -26,7 +26,7 @@ export default db;*/
 //import firebase from "firebase";
 //import "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc, addDoc, collection, orderBy, query, limit, getDocs, onSnapshot, QuerySnapshot, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, addDoc, collection, orderBy, query, limit, getDocs, onSnapshot, QuerySnapshot, getDoc, Timestamp } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCFKQqsvFcQ20np8g1yXp6ewnQkoKe3kn4",
@@ -57,25 +57,26 @@ export const addUser =  (username, password, id) => {
 
 const postsCollection = collection(db, 'posts')
 
-export const addNewPost = async (text, userID) => {
-    try {
-        const newDoc = await addDoc(postsCollection, {
-            text: text,
-            userID: userID,
-        })
-        console.log(`Post created at ${newDoc.path}`)
-    }
-    catch(err) {
-        console.log(err)
-    }
+// export const addNewPost = async (text, userID) => {
+//   const date = Timestamp.fromDate(new Date())
+//     try {
+//         const newDoc = await addDoc(postsCollection, {
+//             text: text,
+//             userID: userID,
+//             date: date,
+//         })
+//         console.log(`Post created at ${newDoc.path} and ${date.seconds}`)
+//     }
+//     catch(err) {
+//         console.log(err)
+//     }
 
-}
+// }
 
 //export let unsubscribePosts;
-
 export const postsQuery = query(
     collection(db, 'posts'),
-    //orderBy(date),
+    orderBy('date', 'desc'), 
     limit(10),
 )
 
@@ -100,10 +101,12 @@ export const postsQuery = query(
 
 
 export const createPost = async (text, userID) => {
+  const date = Timestamp.fromDate(new Date())
     try {
         const docRef = await addDoc(collection(db, "posts"), {
           text: text,
-          userID: userID
+          userID: userID,
+          date: date,
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
