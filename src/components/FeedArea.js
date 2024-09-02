@@ -18,7 +18,7 @@ function FeedArea() {
   return (
     <>
       {posts.map((post, i) => (
-        <Post postContent={post.text} key={"Post_" + i} />
+        <Post postContent={post.text} postDate={post.date.toDate()} key={"Post_" + i} />
       ))}
     </>
   );

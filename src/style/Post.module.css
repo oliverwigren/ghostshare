@@ -12,3 +12,16 @@
     overflow: hidden;
     text-align: center;
 }
+
+.date {
+    text-wrap: wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: -10px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+button {
+    cursor: pointer;
+}
