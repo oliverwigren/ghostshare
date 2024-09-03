@@ -7,10 +7,10 @@ import { postsQuery } from "./Firebase";
 function FeedArea() {
   const [posts, setPosts] = useState([]);
 
-  let unsubscribePosts;
+  //let unsubscribePosts;
 
   useEffect(() => {
-    unsubscribePosts = onSnapshot(postsQuery, (querySnapshot) => {
+    let unsubscribePosts = onSnapshot(postsQuery, (querySnapshot) => {
       setPosts(querySnapshot.docs.map((e) => e.data()));
     });
      return () => {
