@@ -33,8 +33,8 @@ function CreateAccount({ isAuth, setAuth }) {
 
   return (
     <section className={styles.section}>
-      <h1></h1>
-      <p></p>
+      {/* <h1></h1>
+      <p></p> */}
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label><br/>

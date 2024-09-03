@@ -8,7 +8,7 @@ function Landing() {
 
   return (
     <>
-      <img src={image} className={styles.img} />
+      <img src={image} className={styles.img} alt="Logo" />
       <div className={styles.div}>
         <button className={styles.button} onClick={() => navigate("/login")}>Log in</button>
         <button className={styles.button}  onClick={() => navigate("/create")}>Create Account</button>

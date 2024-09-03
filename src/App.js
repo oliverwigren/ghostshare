@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import HeaderArea from "./components/HeaderArea";
+//import HeaderArea from "./components/HeaderArea";
 import FeedArea from "./components/FeedArea";
 import CreatePost from "./components/CreatePost";
 import CreateAccount from "./components/CreateAccount";

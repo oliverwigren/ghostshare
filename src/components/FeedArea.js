@@ -13,6 +13,9 @@ function FeedArea() {
     unsubscribePosts = onSnapshot(postsQuery, (querySnapshot) => {
       setPosts(querySnapshot.docs.map((e) => e.data()));
     });
+     return () => {
+      unsubscribePosts()
+     }
   }, []);
 
   return (

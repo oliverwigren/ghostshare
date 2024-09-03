@@ -25,10 +25,10 @@ export default db;*/
 
 //import firebase from "firebase";
 //import "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc, addDoc, collection, orderBy, query, limit, getDocs, onSnapshot, QuerySnapshot, getDoc, Timestamp } from "firebase/firestore";
-
-const firebaseConfig = {
+//import { initializeApp } from "firebase/app";
+import { getFirestore, doc, setDoc, addDoc, collection, orderBy, query, limit, Timestamp } from "firebase/firestore";
+// getDocs, onSnapshot, QuerySnapshot, getDoc
+/*const firebaseConfig = {
     apiKey: "AIzaSyCFKQqsvFcQ20np8g1yXp6ewnQkoKe3kn4",
     authDomain: "ghostshare-f234e.firebaseapp.com",
     projectId: "ghostshare-f234e",
@@ -36,10 +36,10 @@ const firebaseConfig = {
     messagingSenderId: "614794423461",
     appId: "1:614794423461:web:c5e78d60db70b8d498714c",
     measurementId: "G-C8N5KZ1RD5"
-  };
+  };*/
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+//const app = initializeApp(firebaseConfig);
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore();
@@ -55,7 +55,7 @@ export const addUser =  (username, password, id) => {
     console.log('succes')
 }
 
-const postsCollection = collection(db, 'posts')
+//const postsCollection = collection(db, 'posts')
 
 // export const addNewPost = async (text, userID) => {
 //   const date = Timestamp.fromDate(new Date())
