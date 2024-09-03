@@ -6,6 +6,7 @@ import styles from '../style/Login.module.css'
 function Login({ setAuth }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorText, setErrorText] = useState('')
 
   const navigate = useNavigate();
 
@@ -13,6 +14,7 @@ function Login({ setAuth }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrorText('')
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -27,7 +29,7 @@ function Login({ setAuth }) {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
+        setErrorText(`Error ${errorCode}. Account could not be created.`)
         console.log(errorCode + " " + errorMessage);
       });
   };
@@ -63,6 +65,8 @@ function Login({ setAuth }) {
         <br />
         <button className={styles.button} type="submit">Log in</button>
       </form>
+
+      <p style={{color: 'red'}}>{errorText}</p>
 
       <button className={styles.navBtn} type="button" onClick={() => navigate('/create')}>Create Account Instead</button>
     </section>
