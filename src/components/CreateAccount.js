@@ -16,6 +16,19 @@ function CreateAccount({ isAuth, setAuth }) {
     e.preventDefault();
     setErrorText('')
 
+    if(!email || !password) {
+      setErrorText('Email or password was not recieved')
+      return 2;
+    }
+    else if (!auth) {
+      setErrorText('Error with generating authentication token')
+      return 3;
+    }
+    else if (password.length < 5) {
+      setErrorText('Password must be atleast 5 characters long')
+      return 4;
+    }
+
   createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed up
@@ -25,12 +38,14 @@ function CreateAccount({ isAuth, setAuth }) {
 
         setAuth(true)
         navigate('/')
+        return 0
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode + ' ' + errorMessage)
         setErrorText(`Error ${errorCode}. Account could not be created.`)
+        return 1
       });
   };
 

@@ -10,7 +10,7 @@ function CreatePost() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     createPost(text, 1)
 
     navigate('/')

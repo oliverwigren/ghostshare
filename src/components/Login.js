@@ -16,6 +16,19 @@ function Login({ setAuth }) {
     e.preventDefault();
     setErrorText('')
 
+    if(!email || !password) {
+      setErrorText('Email or password was not recieved')
+      return 2;
+    }
+    else if (!auth) {
+      setErrorText('Error with generating authentication token')
+      return 3;
+    }
+    else if (password.length < 5) {
+      setErrorText('Password must be atleast 5 characters long')
+      return 4;
+    }
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -25,19 +38,21 @@ function Login({ setAuth }) {
 
         setAuth(true)
         navigate('/')
+        return 0
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setErrorText(`Error ${errorCode}. Account could not be created.`)
         console.log(errorCode + " " + errorMessage);
+        return 1
       });
   };
 
   return (
     <section className={styles.section}>
-      {/* <h1></h1>
-      <p></p> */}
+      <h1>Log in</h1>
+      <p>Welcome back to Ghostshare</p>
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label><br/>
