@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../style/CreatePost.module.css";
 import { useNavigate } from "react-router-dom";
 import { createPost } from './Firebase'
 
-function CreatePost({ setPosts }) {
+function CreatePost() {
+  const [text, setText] = useState('')
 
   const navigate = useNavigate()
 
@@ -13,7 +14,7 @@ function CreatePost({ setPosts }) {
     //   return [{ text: e.target.input.value }, ...prev];
     // });
 
-    createPost(e.target.input.value, 1)
+    createPost(text, 1)
 
     navigate('/')
   };
@@ -21,12 +22,14 @@ function CreatePost({ setPosts }) {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label} htmlFor="input">Message:</label>
+        <label className={styles.label} htmlFor="input">Secret Message:</label>
         <br />
-        <input id="input" type="text" required autoComplete="off"></input>
-        <button type="submit" className={styles.submit}>Post</button>
+        <textarea id="input" type="text" required autoComplete="off" onChange={(e) => setText(e.target.value)} maxLength='100' className={styles.textarea} ></textarea>
         <br />
-        <button type="button" className={styles.goBack} onClick={() => navigate(-1)}>Go back</button>
+        <div className={styles.div}>
+          <button type="submit" value={text} className={styles.submit}>Post</button>
+          <button type="button" className={styles.goBack} onClick={() => navigate(-1)}>Go back</button>
+        </div>
       </form>
     </>
   );
