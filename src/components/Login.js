@@ -64,6 +64,7 @@ function Login({ setAuth }) {
           placeholder="Email"
           id="email"
           autoComplete="off"
+          required
           className={styles.input}
         /><br/><br />
         <label htmlFor="password">Password</label><br/>
@@ -75,6 +76,7 @@ function Login({ setAuth }) {
           placeholder="Password"
           id="password"
           autoComplete="off"
+          required
           className={styles.input}
         />
         <br />
