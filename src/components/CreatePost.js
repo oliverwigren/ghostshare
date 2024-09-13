@@ -27,8 +27,8 @@ function CreatePost() {
         <textarea id="input" type="text" required autoComplete="off" onChange={(e) => setText(e.target.value)} maxLength='100' className={styles.textarea} ></textarea>
         <br />
         <div className={styles.div}>
-          <button type="submit" value={text} className={styles.submit}>Post</button>
-          <button type="button" className={styles.goBack} onClick={() => navigate(-1)}>Go back</button>
+          <button type="submit" value={text} className={styles.submit + ' ' + styles.buttons}>Post</button>
+          <button type="button" className={styles.goBack + ' ' + styles.buttons} onClick={() => navigate(-1)}>Go back</button>
         </div>
       </form>
     </>
