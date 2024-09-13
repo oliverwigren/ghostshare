@@ -10,10 +10,7 @@ function CreatePost() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setPosts((prev) => {
-    //   return [{ text: e.target.input.value }, ...prev];
-    // });
-
+    
     createPost(text, 1)
 
     navigate('/')
