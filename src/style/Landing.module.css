@@ -8,12 +8,14 @@
 .img {
     margin: auto;
     display: block;
+    max-height: 60vh;
 }
 .div {
     margin: auto;
     display: block;
     width: fit-content;
     padding: 20px;
+    text-align: center;
 }
 .button {
     background-color: blue;
@@ -24,3 +26,9 @@
     border: 0;
     color: white;
 }   
+
+@media screen and (max-width: 500px) {
+    .img {
+        width: 100%;
+    }
+}

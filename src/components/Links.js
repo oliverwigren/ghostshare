@@ -10,9 +10,9 @@ function Links() {
       <NavLink to="/" className={({isActive}) => isActive ? style.button + ' ' + style.active : style.button}>
         Feed
       </NavLink>
-      <NavLink to="/profile" className={({isActive}) => isActive ? style.button + ' ' + style.active : style.button}>
+      {/* <NavLink to="/profile" className={({isActive}) => isActive ? style.button + ' ' + style.active : style.button}>
         Profile
-      </NavLink>
+      </NavLink> */}
       {/* <button className={style.button} onClick={() => setShowCrP(true)} >Post</button> */}
       <NavLink to="/post" className={({isActive}) => isActive ? style.button + ' ' + style.active : style.button}>
         Post
