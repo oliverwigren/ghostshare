@@ -51,7 +51,7 @@ function CreateAccount({ isAuth, setAuth }) {
 
   return (
     <section className={styles.section}>
-      <h1>Create Account</h1>
+      <h2>Create Account</h2>
       <p>Welcome to Ghostshare</p>
 
       <form onSubmit={handleSubmit}>

@@ -51,7 +51,7 @@ function Login({ setAuth }) {
 
   return (
     <section className={styles.section}>
-      <h1>Log in</h1>
+      <h2>Log in</h2>
       <p>Welcome back to Ghostshare</p>
 
       <form onSubmit={handleSubmit}>
