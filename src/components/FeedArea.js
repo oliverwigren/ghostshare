@@ -1,13 +1,10 @@
 import React from "react";
 import Post from "./Post";
-//import { queryForPosts } from "./Firebase";
 import { useEffect, useState } from "react";
 import { onSnapshot } from "firebase/firestore";
 import { postsQuery } from "./Firebase";
 function FeedArea() {
   const [posts, setPosts] = useState([]);
-
-  //let unsubscribePosts;
 
   useEffect(() => {
     let unsubscribePosts = onSnapshot(postsQuery, (querySnapshot) => {

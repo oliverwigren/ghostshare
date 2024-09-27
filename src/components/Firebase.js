@@ -26,7 +26,7 @@ export const addUser =  (username, password, id) => {
         id: id,
       }
      setDoc(userPath, data)
-    console.log('succes')
+    console.log('success')
 }
 
 //export let unsubscribePosts;
