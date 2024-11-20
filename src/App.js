@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-//import HeaderArea from "./components/HeaderArea";
 import FeedArea from "./components/FeedArea";
 import CreatePost from "./components/CreatePost";
 import CreateAccount from "./components/CreateAccount";
@@ -14,19 +13,11 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-// import { collection, addDoc } from 'firebase/firestore'
-// //import db from './components/firebase'
-// import {queryForPosts, unsubscribePosts} from './components/Firebase'
 
 function App() {
   const [isLogin, setLogin] = useState(false);
 
-  //const [posts, setPosts] = useState([{text: 'Jag älskar matte.', userID: 1}, {text: 'Och jag älskar programmering!', userID: 2}])
-
-  // useEffect(() => {
-  //   setPosts(queryForPosts())
-
-  // },[])
+  // Checks if user is logged in and routes the user to either the login page or the feed
 
   const appRouter = createBrowserRouter(
     createRoutesFromElements(

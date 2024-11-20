@@ -1,7 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, addDoc, collection, orderBy, query, limit, Timestamp } from "firebase/firestore";
-// getDocs, onSnapshot, QuerySnapshot, getDoc
-
 import { firebaseConfig } from "../firebaseConfig";
 
 // Initialize Firebase
@@ -22,11 +20,10 @@ export const addUser =  (username, password, id) => {
     console.log('success')
 }
 
-//export let unsubscribePosts;
 export const postsQuery = query(
     collection(db, 'posts'),
     orderBy('date', 'desc'), 
-    limit(10),
+    limit(15),
 )
 
 export const createPost = async (text, userID) => {

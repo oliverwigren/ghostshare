@@ -7,6 +7,7 @@ function FeedArea() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    // Hämtar alla inlägg från firebase
     let unsubscribePosts = onSnapshot(postsQuery, (querySnapshot) => {
       setPosts(querySnapshot.docs.map((e) => e.data()));
     });
@@ -17,6 +18,7 @@ function FeedArea() {
 
   return (
     <>
+    {/* Skapar alla inlägg i flödet */}
       {posts.map((post, i) => (
         <Post postContent={post.text} postDate={post.date.toDate()} key={"Post_" + i} />
       ))}
