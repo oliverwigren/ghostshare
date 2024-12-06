@@ -23,7 +23,7 @@ export const addUser =  (username, password, id) => {
 export const postsQuery = query(
     collection(db, 'posts'),
     orderBy('date', 'desc'), 
-    limit(15),
+    limit(100),
 )
 
 export const createPost = async (text, userID) => {
